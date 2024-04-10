@@ -1,3 +1,4 @@
+import '/components/background_primary_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -10,12 +11,18 @@ class SettingPageModel extends FlutterFlowModel<SettingPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Model for BackgroundPrimaryView component.
+  late BackgroundPrimaryViewModel backgroundPrimaryViewModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    backgroundPrimaryViewModel =
+        createModel(context, () => BackgroundPrimaryViewModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    backgroundPrimaryViewModel.dispose();
   }
 }
