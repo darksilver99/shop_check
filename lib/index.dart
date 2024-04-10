@@ -3,3 +3,4 @@ export '/home_page/home_page_widget.dart' show HomePageWidget;
 export '/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/setting_page/setting_page_widget.dart' show SettingPageWidget;
 export '/register_page/register_page_widget.dart' show RegisterPageWidget;
+export '/form_shop_page/form_shop_page_widget.dart' show FormShopPageWidget;

@@ -113,6 +113,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'RegisterPage',
           path: '/registerPage',
           builder: (context, params) => RegisterPageWidget(),
+        ),
+        FFRoute(
+          name: 'FormShopPage',
+          path: '/formShopPage',
+          builder: (context, params) => FormShopPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -297,14 +302,13 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
+              ? Container(
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/beer-mug_1584731.png',
+                      width: MediaQuery.sizeOf(context).width * 0.5,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 )
