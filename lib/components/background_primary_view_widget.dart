@@ -41,7 +41,7 @@ class _BackgroundPrimaryViewWidgetState
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 0.65,
+      height: MediaQuery.sizeOf(context).height * 1.0,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -49,7 +49,7 @@ class _BackgroundPrimaryViewWidgetState
             Color(0xFFF4767E),
             FlutterFlowTheme.of(context).tertiary
           ],
-          stops: [0.0, 0.5, 1.0],
+          stops: [0.0, 0.7, 1.0],
           begin: AlignmentDirectional(-1.0, -1.0),
           end: AlignmentDirectional(1.0, 1.0),
         ),
