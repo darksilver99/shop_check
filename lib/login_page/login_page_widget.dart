@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -516,16 +515,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
-                                      onPressed: () async {
-                                        GoRouter.of(context).prepareAuthEvent();
-                                        final user = await authManager
-                                            .signInWithGoogle(context);
-                                        if (user == null) {
-                                          return;
-                                        }
-
-                                        context.goNamedAuth(
-                                            'HomePage', context.mounted);
+                                      onPressed: () {
+                                        print('Button pressed ...');
                                       },
                                       text: 'Continue with Google',
                                       icon: FaIcon(
@@ -562,64 +553,48 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       ),
                                     ),
                                   ),
-                                  isAndroid
-                                      ? Container()
-                                      : Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 16.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-                                              final user = await authManager
-                                                  .signInWithApple(context);
-                                              if (user == null) {
-                                                return;
-                                              }
-
-                                              context.goNamedAuth(
-                                                  'HomePage', context.mounted);
-                                            },
-                                            text: 'Continue with Apple',
-                                            icon: FaIcon(
-                                              FontAwesomeIcons.apple,
-                                              size: 20.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 16.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () {
+                                        print('Button pressed ...');
+                                      },
+                                      text: 'Continue with Apple',
+                                      icon: FaIcon(
+                                        FontAwesomeIcons.apple,
+                                        size: 20.0,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 230.0,
+                                        height: 44.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Manrope',
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                            options: FFButtonOptions(
-                                              width: 230.0,
-                                              height: 44.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Manrope',
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                              elevation: 0.0,
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                width: 2.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                              hoverColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                            ),
-                                          ),
+                                        elevation: 0.0,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          width: 2.0,
                                         ),
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                        hoverColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
