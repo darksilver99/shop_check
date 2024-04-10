@@ -642,7 +642,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                       final user = await authManager
                                           .createAccountWithEmail(
                                         context,
-                                        _model.displayNameController.text,
+                                        _model.emailAddressController.text,
                                         _model.passwordController.text,
                                       );
                                       if (user == null) {
