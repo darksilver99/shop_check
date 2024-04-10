@@ -134,7 +134,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   return index % 2 == 0 ? true : false;
                                 }(staggeredViewIndex)
                                     ? 250.0
-                                    : 200.0,
+                                    : ((int index) {
+                                        return index % 3 == 0 ? 250.0 : 200.0;
+                                      }(staggeredViewIndex)),
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
