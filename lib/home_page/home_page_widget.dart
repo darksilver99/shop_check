@@ -49,8 +49,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         floatingActionButton: Visibility(
           visible: loggedIn,
           child: FloatingActionButton(
-            onPressed: () {
-              print('FloatingActionButton pressed ...');
+            onPressed: () async {
+              context.pushNamed('FormShopPage');
             },
             backgroundColor: FlutterFlowTheme.of(context).primary,
             elevation: 8.0,
