@@ -548,6 +548,41 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                             ),
                           ),
                         ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 16.0),
+                            child: FFButtonWidget(
+                              onPressed: () {
+                                print('Button pressed ...');
+                              },
+                              text: 'Sign In',
+                              options: FFButtonOptions(
+                                width: 230.0,
+                                height: 52.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Manrope',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                            ),
+                          ),
+                        ),
                         if (false)
                           Column(
                             mainAxisSize: MainAxisSize.max,
