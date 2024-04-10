@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/background_primary_view_widget.dart';
+import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -53,10 +54,14 @@ class FormShopPageModel extends FlutterFlowModel<FormShopPageWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
 
+  // Model for LoadingView component.
+  late LoadingViewModel loadingViewModel;
+
   @override
   void initState(BuildContext context) {
     backgroundPrimaryViewModel =
         createModel(context, () => BackgroundPrimaryViewModel());
+    loadingViewModel = createModel(context, () => LoadingViewModel());
   }
 
   @override
@@ -71,5 +76,7 @@ class FormShopPageModel extends FlutterFlowModel<FormShopPageWidget> {
 
     titleFocusNode2?.dispose();
     titleController2?.dispose();
+
+    loadingViewModel.dispose();
   }
 }
