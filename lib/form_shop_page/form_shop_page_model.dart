@@ -41,14 +41,38 @@ class FormShopPageModel extends FlutterFlowModel<FormShopPageWidget> {
   FocusNode? titleFocusNode1;
   TextEditingController? titleController1;
   String? Function(BuildContext, String?)? titleController1Validator;
+  String? _titleController1Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for detail widget.
   FocusNode? detailFocusNode;
   TextEditingController? detailController;
   String? Function(BuildContext, String?)? detailControllerValidator;
+  String? _detailControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for title widget.
   FocusNode? titleFocusNode2;
   TextEditingController? titleController2;
   String? Function(BuildContext, String?)? titleController2Validator;
+  String? _titleController2Validator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -61,6 +85,9 @@ class FormShopPageModel extends FlutterFlowModel<FormShopPageWidget> {
   void initState(BuildContext context) {
     backgroundPrimaryViewModel =
         createModel(context, () => BackgroundPrimaryViewModel());
+    titleController1Validator = _titleController1Validator;
+    detailControllerValidator = _detailControllerValidator;
+    titleController2Validator = _titleController2Validator;
     loadingViewModel = createModel(context, () => LoadingViewModel());
   }
 

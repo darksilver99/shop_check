@@ -656,46 +656,67 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                               .validate()) {
                                         return;
                                       }
-
-                                      await ShopListRecord.collection
-                                          .doc()
-                                          .set({
-                                        ...createShopListRecordData(
-                                          createDate: getCurrentTimestamp,
-                                          createBy: currentUserReference,
-                                          status: 1,
-                                          title: _model.titleController1.text,
-                                          detail: _model.detailController.text,
-                                          rating: 0.0,
-                                        ),
-                                        ...mapToFirestore(
-                                          {
-                                            'images': _model.imageTmpList,
-                                          },
-                                        ),
-                                      });
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'เพิ่มร้านเรียบร้อยแล้ว',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                      if (_model.imageTmpList.isNotEmpty) {
+                                        await ShopListRecord.collection
+                                            .doc()
+                                            .set({
+                                          ...createShopListRecordData(
+                                            createDate: getCurrentTimestamp,
+                                            createBy: currentUserReference,
+                                            status: 1,
+                                            title: _model.titleController1.text,
+                                            detail:
+                                                _model.detailController.text,
+                                            rating: 0.0,
                                           ),
-                                          duration:
-                                              Duration(milliseconds: 2000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .success,
-                                        ),
-                                      );
-                                      await actions.pushReplacementNamed(
-                                        context,
-                                        'HomePage',
-                                      );
+                                          ...mapToFirestore(
+                                            {
+                                              'images': _model.imageTmpList,
+                                            },
+                                          ),
+                                        });
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'เพิ่มร้านเรียบร้อยแล้ว',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 2000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .success,
+                                          ),
+                                        );
+                                        await actions.pushReplacementNamed(
+                                          context,
+                                          'HomePage',
+                                        );
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'เพิ่มรูปภาพอย่างน้อย 1 รูป',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 2000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .error,
+                                          ),
+                                        );
+                                      }
                                     },
                                     text: 'เพิ่มร้าน',
                                     options: FFButtonOptions(
