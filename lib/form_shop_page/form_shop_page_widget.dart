@@ -674,6 +674,8 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                             detail:
                                                 _model.detailController.text,
                                             rating: 0.0,
+                                            locationText:
+                                                _model.titleController2.text,
                                           ),
                                           ...mapToFirestore(
                                             {

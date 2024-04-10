@@ -145,7 +145,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: Image.network(
-                                        'https://picsum.photos/seed/469/600',
+                                        staggeredViewShopListRecord
+                                            .images.first,
                                         width: double.infinity,
                                         height: (int index) {
                                           return index % 2 == 0 ? true : false;
@@ -206,7 +207,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                               ),
                                               Expanded(
                                                 child: Text(
-                                                  'ลาดพร้าว',
+                                                  staggeredViewShopListRecord
+                                                      .locationText,
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
