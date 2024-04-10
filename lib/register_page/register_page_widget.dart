@@ -355,7 +355,6 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                                           letterSpacing: 0.0,
                                         ),
                                     minLines: null,
-                                    keyboardType: TextInputType.emailAddress,
                                     validator: _model
                                         .displayNameControllerValidator
                                         .asValidator(context),
