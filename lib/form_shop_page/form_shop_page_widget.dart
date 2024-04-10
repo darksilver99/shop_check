@@ -140,7 +140,7 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                   child: TextFormField(
                                     controller: _model.titleController1,
                                     focusNode: _model.titleFocusNode1,
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'ชื่อร้าน',
@@ -210,7 +210,7 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                   child: TextFormField(
                                     controller: _model.detailController,
                                     focusNode: _model.detailFocusNode,
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'รายละเอียด',
@@ -281,7 +281,7 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                   child: TextFormField(
                                     controller: _model.titleController2,
                                     focusNode: _model.titleFocusNode2,
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'ที่ตั้ง',
@@ -489,6 +489,9 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
+                                                  setState(() {
+                                                    _model.isLoading = true;
+                                                  });
                                                   final selectedMedia =
                                                       await selectMediaWithSourceBottomSheet(
                                                     context: context,
@@ -577,9 +580,11 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                                       _model.addToImageTmpList(
                                                           _model
                                                               .uploadedFileUrl);
-                                                      _model.isLoading = false;
                                                     });
                                                   }
+                                                  setState(() {
+                                                    _model.isLoading = false;
+                                                  });
                                                 },
                                                 child: Container(
                                                   width: 100.0,
@@ -648,15 +653,16 @@ class _FormShopPageWidgetState extends State<FormShopPageWidget> {
                                       16.0, 0.0, 16.0, 32.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() {
-                                        _model.isLoading = true;
-                                      });
                                       if (_model.formKey.currentState == null ||
                                           !_model.formKey.currentState!
                                               .validate()) {
                                         return;
                                       }
                                       if (_model.imageTmpList.isNotEmpty) {
+                                        setState(() {
+                                          _model.isLoading = true;
+                                        });
+
                                         await ShopListRecord.collection
                                             .doc()
                                             .set({
