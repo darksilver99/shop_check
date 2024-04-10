@@ -7,10 +7,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'form_shop_page_widget.dart' show FormShopPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +27,8 @@ class FormShopPageModel extends FlutterFlowModel<FormShopPageWidget> {
       imageTmpList.insert(index, item);
   void updateImageTmpListAtIndex(int index, Function(String) updateFn) =>
       imageTmpList[index] = updateFn(imageTmpList[index]);
+
+  bool isLoading = true;
 
   ///  State fields for stateful widgets in this page.
 
