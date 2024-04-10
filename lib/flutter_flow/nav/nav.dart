@@ -90,7 +90,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'HomePage')
-              : HomePageWidget(),
+              : NavBarPage(
+                  initialPage: 'HomePage',
+                  page: HomePageWidget(),
+                ),
         ),
         FFRoute(
           name: 'LoginPage',
@@ -102,7 +105,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/settingPage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'SettingPage')
-              : SettingPageWidget(),
+              : NavBarPage(
+                  initialPage: 'SettingPage',
+                  page: SettingPageWidget(),
+                ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
