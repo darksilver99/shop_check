@@ -229,34 +229,37 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                       ),
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 64.0,
-                    decoration: BoxDecoration(
-                      color: Color(0x00FFFFFF),
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.safePop();
-                            },
-                            child: Icon(
-                              Icons.chevron_left_rounded,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 36.0,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 64.0,
+                      decoration: BoxDecoration(
+                        color: Color(0x00FFFFFF),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.safePop();
+                              },
+                              child: Icon(
+                                Icons.chevron_left_rounded,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 36.0,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
